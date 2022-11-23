@@ -7,17 +7,8 @@ import MoviesList from 'components/MoviesList/MoviesList';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
-  const queryInput = searchParams.get('query');
-
-  useEffect(() => {
-    if (queryInput) {
-      setQuery(queryInput);
-      return;
-    }
-    setQuery('');
-  }, [queryInput]);
+  const query = searchParams.get("query") ?? "";
 
   useEffect(() => {
     if (query === '') {
@@ -33,14 +24,13 @@ const Movies = () => {
 
   const handleSubmit = searchQuery => {
     setSearchParams({ query: searchQuery });
-    setQuery(searchQuery);
   };
 
   return (
     <main>
       <h2>Search Movies</h2>
       <InputForm onSubmit={handleSubmit} />
-      {movies.length === 0 && queryInput ? (
+      {movies.length === 0 && query ? (
         <p>Sorry, there is no any movie</p>
       ) : (
         <MoviesList movies={movies} />

@@ -68,7 +68,7 @@ const MovieDetails = () => {
             <ul>
               <li>
                 <AddInfoNavLink
-                  to={`/movies/${movieId}/cast`}
+                  to={`cast`}
                   state={{ from: backLinkHref }}
                 >
                   Cast
@@ -76,7 +76,7 @@ const MovieDetails = () => {
               </li>
               <li>
                 <AddInfoNavLink
-                  to={`/movies/${movieId}/reviews`}
+                  to={`reviews`}
                   state={{ from: backLinkHref }}
                 >
                   Reviews
